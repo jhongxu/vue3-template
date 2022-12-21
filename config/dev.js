@@ -1,6 +1,10 @@
 /**
  * @type {import('vite').UserConfig}
  */
-const devConfig = {}
+const devConfig = {
+  server: {
+    open: true
+  }
+};
 
-export default devConfig
+export default devConfig;

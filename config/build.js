@@ -2,7 +2,7 @@
  * @type {import('vite').UserConfig}
  */
 const buildConfig = {
-    plugins: []
-}
+  plugins: []
+};
 
-export default buildConfig
+export default buildConfig;

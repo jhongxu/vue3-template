@@ -1,14 +1,24 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import { reactive } from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
+import { println } from '@/utils';
+
+const obj = reactive([{ name: '张三', age: 20 }, { name: '猪八戒', age: 30 }]);
+println({ obj });
+// console.log(obj)
+obj[0].name = '孙悟空';
+println({ obj });
+// console.log(obj)
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125"/>
+    <svg-icon icon-class="404"/>
+    <svg-icon icon-class="button"/>
+    <div class=" bg-amber-900 ">
+      <HelloWorld msg="You did it!"/>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -17,7 +27,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <RouterView/>
 </template>
 
 <style scoped>
