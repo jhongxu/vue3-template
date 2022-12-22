@@ -1,33 +1,59 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router';
-import { reactive } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
 import { println } from '@/utils';
+import HelloWorld from '@/components/HelloWorld.vue';
 
 const obj = reactive([{ name: '张三', age: 20 }, { name: '猪八戒', age: 30 }]);
 println({ obj });
-// console.log(obj)
 obj[0].name = '孙悟空';
 println({ obj });
-// console.log(obj)
+const { x, y } = useMouse();
+
+const open1 = () => {
+  ElNotification({
+    title: 'Success',
+    message: 'This is a success message',
+    type: 'success',
+  });
+};
+
+const open2 = () => {
+  ElNotification({
+    title: 'Warning',
+    message: 'This is a warning message',
+    type: 'warning',
+  });
+};
+
+const open3 = () => {
+  ElNotification({
+    title: 'Info',
+    message: 'This is an info message',
+    type: 'info',
+  });
+};
+
+const open4 = () => {
+  ElNotification({
+    title: 'Error',
+    message: 'This is an error message',
+    type: 'error',
+    duration: 0,
+  });
+};
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125"/>
-    <svg-icon icon-class="404"/>
-    <svg-icon icon-class="button"/>
-    <div class=" bg-amber-900 ">
-      <HelloWorld msg="You did it!"/>
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    {{ x }}:{{ y }}
+    <div class="">
+      <HelloWorld msg="You did it!"></HelloWorld>
     </div>
+    <el-button plain @click="open1"> Success </el-button>
+    <el-button plain @click="open2"> Warning </el-button>
+    <el-button plain @click="open3"> Info </el-button>
+    <el-button plain @click="open4"> Error </el-button>
   </header>
-
-  <RouterView/>
 </template>
 
 <style scoped>

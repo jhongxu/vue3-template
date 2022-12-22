@@ -1,20 +1,36 @@
-<script setup>
+<script setup name="HelloWorld">
 defineProps({
   msg: {
     type: String,
     required: true
   }
 });
+const open1 = () => {
+  ElMessage('this is a message.');
+};
+const open2 = () => {
+  ElMessage({
+    message: 'Congrats, this is a success message.',
+    type: 'success',
+  });
+};
+const open3 = () => {
+  ElMessage({
+    message: 'Warning, this is a warning message.',
+    type: 'warning',
+  });
+};
+const open4 = () => {
+  ElMessage.error('Oops, this is a error message.');
+};
 </script>
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <el-button :plain="true" @click="open2">success</el-button>
+    <el-button :plain="true" @click="open3">warning</el-button>
+    <el-button :plain="true" @click="open1">message</el-button>
+    <el-button :plain="true" @click="open4">error</el-button>
   </div>
 </template>
 
