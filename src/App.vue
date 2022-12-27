@@ -1,5 +1,4 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
 import { println } from '@/utils';
 import HelloWorld from '@/components/HelloWorld.vue';
 

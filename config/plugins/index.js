@@ -6,6 +6,8 @@ import createSvgIcons from './svg-icon';
 import createComponents from './components';
 import createAutoImport from './auto-import';
 import createSetupExtend from './setup-extend';
+import createProgress from './progress';
+import createRemoveConsole from './remove-console';
 
 const createVitePlugins = (mode) => {
   const vitePlugins = [vue()];
@@ -15,7 +17,10 @@ const createVitePlugins = (mode) => {
   vitePlugins.push(createComponents());
   vitePlugins.push(createAutoImport());
   vitePlugins.push(createSetupExtend());
-  vitePlugins.push(createVisualizer());
+  // 打包插件
+  vitePlugins.push(createRemoveConsole());
+  // vitePlugins.push(createProgress());
+  vitePlugins.push(createVisualizer(mode));
   return vitePlugins;
 };
 
